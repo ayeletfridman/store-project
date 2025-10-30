@@ -1,6 +1,5 @@
 import { getProductsByCategory } from "@/services/api";
 import ProductCard from "@/components/ProductCard";
-// import { use } from 'react';
 
 export default async function CategoryPage({
   params,

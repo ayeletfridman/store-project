@@ -4,7 +4,7 @@ import { useAppStore } from "@/store/useAppStore";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./CheckoutPage.module.css";
-// import { TrashIcon } from '@heroicons/react/24/outline';
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 export default function CheckoutPage() {
   const cart = useAppStore((state) => state.cart);
