@@ -50,7 +50,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             className={`btn btn-primary ${styles.fullWidth}`}
           >
             <ShoppingCartIcon height={20} width={20} />
-            הוספה לעגלה
+            add to cart
           </button>
 
           <button

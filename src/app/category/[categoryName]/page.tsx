@@ -14,7 +14,7 @@ export default async function CategoryPage({
 
   return (
     <div>
-      <h1 style={{ textTransform: "capitalize" }}>קטגוריה: {categoryName}</h1>
+      <h1 style={{ textTransform: "capitalize" }}> {categoryName}</h1>
       <div className={gridStyles.grid}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

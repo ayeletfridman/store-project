@@ -13,9 +13,9 @@ export default function WishlistPage() {
   if (wishlist.length === 0) {
     return (
       <div className={emptyStyles.emptyCart}>
-        <h1>רשימת המשאלות ריקה</h1>
+        <h1>The wishlist is empty</h1>
         <Link href="/" className="btn btn-primary">
-          חזור לחנות
+          Go Back
         </Link>
       </div>
     );
@@ -23,7 +23,7 @@ export default function WishlistPage() {
 
   return (
     <div>
-      <h1>רשימת המשאלות שלי</h1>
+      <h1>My Wishlist</h1>
       <div className={gridStyles.grid}>
         {wishlist.map((product) => (
           <ProductCard key={product.id} product={product} />

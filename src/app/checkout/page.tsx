@@ -17,9 +17,9 @@ export default function CheckoutPage() {
   if (cart.length === 0) {
     return (
       <div className={`container ${styles.pageGrid}`}>
-        <h1>עגלת הקניות ריקה</h1>
+        <h1>The cart is empty</h1>
         <Link href="/" className="btn btn-primary">
-          חזור לחנות
+          Go back
         </Link>
       </div>
     );
@@ -28,7 +28,7 @@ export default function CheckoutPage() {
   return (
     <div className={`container ${styles.pageGrid}`}>
       <div className={styles.cartList}>
-        <h1>עגלת הקניות שלך</h1>
+        <h1>Your cart</h1>
         {cart.map((item) => (
           <div key={item.id} className={styles.cartItem}>
             <Image
@@ -74,22 +74,22 @@ export default function CheckoutPage() {
       </div>
 
       <div className={styles.summary}>
-        <h2>סיכום הזמנה</h2>
+        <h2>Order Summary</h2>
         <div className={styles.summaryRow}>
-          <span>סכום ביניים</span>
+          <span>Subtotal</span>
           <span>${totalPrice.toFixed(2)}</span>
         </div>
         <div className={styles.summaryRow}>
-          <span>משלוח</span>
-          <span>חינם</span>
+          <span>Shipping</span>
+          <span>Free</span>
         </div>
 
         <div className={styles.summaryTotal}>
-          <span>סך הכל</span>
+          <span> Total</span>
           <span>${totalPrice.toFixed(2)}</span>
         </div>
         <button className={`${styles.checkoutButton} btn btn-primary`}>
-          המשך לתשלום
+          Proceed to Payment
         </button>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1>המוצרים שלנו</h1>
+      <h1>Our Products</h1>
       <div className={gridStyles.grid}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

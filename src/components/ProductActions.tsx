@@ -23,7 +23,7 @@ export default function ProductActions({ product }: { product: Product }) {
         style={{ flex: 1 }}
       >
         <ShoppingCartIcon height={22} width={22} />
-        הוספה לעגלה
+        add to cart
       </button>
 
       <button
