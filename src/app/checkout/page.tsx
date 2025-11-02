@@ -16,9 +16,9 @@ export default function CheckoutPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4">עגלת הקניות ריקה</h1>
-        <Link href="/" className="text-blue-600 hover:underline">
+      <div className={`container ${styles.pageGrid}`}>
+        <h1>עגלת הקניות ריקה</h1>
+        <Link href="/" className="btn btn-primary">
           חזור לחנות
         </Link>
       </div>
@@ -26,68 +26,69 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <div className="lg:col-span-2 space-y-4">
-        <h1 className="text-3xl font-bold mb-6">עגלת הקניות שלך</h1>
+    <div className={`container ${styles.pageGrid}`}>
+      <div className={styles.cartList}>
+        <h1>עגלת הקניות שלך</h1>
         {cart.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md"
-          >
+          <div key={item.id} className={styles.cartItem}>
             <Image
               src={item.image}
               alt={item.title}
-              width={100}
-              height={100}
-              className="object-contain"
+              width={90}
+              height={90}
+              className={styles.itemImage}
             />
-            <div className="flex-grow">
-              <h2 className="font-semibold text-lg">{item.title}</h2>
-              <p className="text-gray-600">${item.price.toFixed(2)}</p>
+            <div className={styles.itemDetails}>
+              <h2 className={styles.itemTitle}>{item.title}</h2>
+              <p className={styles.itemPrice}>${item.price.toFixed(2)}</p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className={styles.itemQuantity}>
               <button
                 onClick={() => updateQuantity(item.id, "decrease")}
-                className="bg-gray-200 px-3 py-1 rounded-md hover:bg-gray-300"
+                className="btn btn-secondary"
               >
                 -
               </button>
-              <span className="font-bold w-8 text-center">{item.quantity}</span>
+              <span className={styles.quantityText}>{item.quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, "increase")}
-                className="bg-gray-200 px-3 py-1 rounded-md hover:bg-gray-300"
+                className="btn btn-secondary"
               >
                 +
               </button>
             </div>
-            <p className="font-bold text-lg w-24 text-right">
+
+            <p className={styles.itemTotal}>
               ${(item.price * item.quantity).toFixed(2)}
             </p>
+
             <button
               onClick={() => removeFromCart(item.id)}
-              className="text-red-500 hover:text-red-700"
-            ></button>
+              className="btn-danger"
+            >
+              <TrashIcon height={20} width={20} />{" "}
+            </button>
           </div>
         ))}
       </div>
 
-      <div className="bg-gray-50 p-6 rounded-lg shadow-md h-fit sticky top-24">
-        <h2 className="text-2xl font-bold mb-4">סיכום הזמנה</h2>
-        <div className="flex justify-between text-lg mb-2">
+      <div className={styles.summary}>
+        <h2>סיכום הזמנה</h2>
+        <div className={styles.summaryRow}>
           <span>סכום ביניים</span>
           <span>${totalPrice.toFixed(2)}</span>
         </div>
-        <div className="flex justify-between text-lg mb-4">
+        <div className={styles.summaryRow}>
           <span>משלוח</span>
           <span>חינם</span>
         </div>
-        <hr className="my-4" />
-        <div className="flex justify-between text-2xl font-bold mb-6">
+
+        <div className={styles.summaryTotal}>
           <span>סך הכל</span>
           <span>${totalPrice.toFixed(2)}</span>
         </div>
-        <button className="w-full bg-green-600 text-white text-lg font-bold py-3 rounded-lg hover:bg-green-700">
+        <button className={`${styles.checkoutButton} btn btn-primary`}>
           המשך לתשלום
         </button>
       </div>

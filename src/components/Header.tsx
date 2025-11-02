@@ -21,7 +21,7 @@ export default function Header({ categories }: HeaderProps) {
         </Link>
         <div className={styles.links}>
           <Link href="/" className={styles.navLink}>
-            בית
+            Home
           </Link>
 
           {categories
@@ -43,7 +43,7 @@ export default function Header({ categories }: HeaderProps) {
 
           <Link href="/checkout" className={styles.cartLink}>
             <ShoppingCartIcon height={20} width={20} />
-            <span>עגלת קניות</span>
+            <span>Cart</span>
             {cartItemCount > 0 && (
               <span className={styles.cartCount}>{cartItemCount}</span>
             )}
